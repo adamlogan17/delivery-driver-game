@@ -8,8 +8,6 @@ public class Delivery : MonoBehaviour
 
     int currScore = 0;
 
-    [SerializeField] Color32 noPackageColour = new Color32(1, 1, 1, 1);
-
     SpriteRenderer spriteRenderer;
 
     private void Start() {
@@ -57,7 +55,6 @@ public class Delivery : MonoBehaviour
 
             package.GetComponent<SpriteRenderer>().color = new Color32((byte) Random.Range(0, 255), (byte) Random.Range(0, 255), (byte) Random.Range(0, 255), 255);
             collisionObject.color = new Color32(1, 1, 1, 0);
-            spriteRenderer.color = noPackageColour;
         }
     }
 
