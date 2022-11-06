@@ -12,6 +12,9 @@ TagManager:
   - HouseYMinus
   - HouseXPlus
   - HouseXMinus
+  - Used
+  - ScoreCounter
+  - BgScore
   layers:
   - Default
   - TransparentFX

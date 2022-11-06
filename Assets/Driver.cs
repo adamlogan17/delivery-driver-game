@@ -5,9 +5,9 @@ using UnityEngine;
 public class Driver : MonoBehaviour
 {
     [SerializeField] float steerSpeed = 200f; 
-    [SerializeField] float origSpeed = 16f;
-    [SerializeField] float moveSpeed = 16f; // the [SerializeField] allows this var to be changed in unity
-    [SerializeField] float slowSpeed = 12f;
+    [SerializeField] float origSpeed = 18f;
+    [SerializeField] float moveSpeed = 18f; // the [SerializeField] allows this var to be changed in unity
+    [SerializeField] float slowSpeed = 14f;
     [SerializeField] float boostSpeed = 20f;
 
     void Update() {
@@ -19,8 +19,6 @@ public class Driver : MonoBehaviour
         transform.Translate(0,moveAmount,0);
     }
 
-    
-
     private void OnCollisionEnter2D(Collision2D other) {
         moveSpeed = slowSpeed; 
     }
@@ -28,6 +26,9 @@ public class Driver : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "Speed Up") {
                 moveSpeed = boostSpeed;
+                other.tag = "Used";
+                var sprtOfOther = other.GetComponent<SpriteRenderer>();
+                sprtOfOther.color = new Color32(1, 1, 1, 1);
         }
     }
 }
